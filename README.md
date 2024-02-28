@@ -33,7 +33,7 @@ accuracy of 99%.
 ### Anomaly Detection using Convolutional Neural Networks
 [Publication](https://ijsrem.com/download/effects-of-segmentation-and-scaling-on-anomaly-detection-using-convolutional-neural-networks/)
 - Performed Image Segmentation using various deep learning approaches.
-- • Achieved an 83% accuracy on segmented images measuring 200 by 200 pixels.
+- Achieved an 83% accuracy on segmented images measuring 200 by 200 pixels.
 
 ## Publications
 1. Yash Padhye,Nimish Padhye,Vaibhav Datar,Arvind Jagtap.”Automated System For Monitoring And Maintaining
