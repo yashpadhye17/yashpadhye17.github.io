@@ -23,7 +23,6 @@ programming assignments.
 
 ### Predictive Analysis for measuring Air Quality
 - Implemented a thorough examination of various machine learning models, highlighting expertise in model assessment.
-- An impressive R2 Score of 0.9314 with the Convolutional Neural Network (CNN), indicating an exceptional data fit.
 
 ### Enhancing Malicious Domain Detection
 - Tremenndous classification results with algorithms like Histogram Boosting Gradient Classifier, attaining a remarkable
