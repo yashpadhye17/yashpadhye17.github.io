@@ -8,7 +8,7 @@
 - All India Secondary School Examination (_CBSE_) | Welspun Vidya Mandir (_July 2018_)
 
 ## Work Experience
-** Associate Data Scientist @ V4c.ai (_July 2023 - Present_)**
+**Associate Data Scientist @ V4c.ai (_July 2023 - Present_)**
 - 5X Dataiku Certified
 
 **Data Science & Machine Learning Intern @ Gilbert Research Centre (_Jan 2023 - March 2023_)**
