@@ -4,7 +4,7 @@
 
 📍 Houston, Texas, USA  
 🎓 M.S. in Data Science & Artificial Intelligence @ University of Houston  
-☁️ 3× Microsoft Azure Certified  
+☁️ 3× Microsoft Azure Certified  | 6x Dataiku Certified
 🤖 Specializing in Machine Learning, NLP, Computer Vision, MLOps, and Generative AI
 
 ---
