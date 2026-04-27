@@ -1,5 +1,21 @@
-title: Yash Nimish Padhye
-logo: /Profile.jpeg
-#description: text below image
-show_downloads: true
-theme: jekyll-theme-minimal
+title: Yash Nimish Padhye Portfolio
+description: AI & Machine Learning Engineer | Data Scientist | Generative AI Engineer
+baseurl: ""
+url: "https://yashpadhye17.github.io"
+
+theme: minima
+markdown: kramdown
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+author:
+  name: Yash Nimish Padhye
+  email: yashpadhye2016@gmail.com
+
+social_links:
+  github: yashpadhye17
+  linkedin: https://www.linkedin.com/in/yash-padhye/
+
+show_excerpts: true
