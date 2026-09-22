@@ -3,257 +3,310 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var theme = stored === 'light' || stored === 'dark'
+          ? stored
+          : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+        if (localStorage.getItem('plain') === '1') document.documentElement.setAttribute('data-plain', 'true');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
   <title>Yash Padhye | AI &amp; Machine Learning Engineer</title>
   <meta name="description" content="AI & Machine Learning Engineer and MS Data Science & AI student at the University of Houston. Building production ML systems, agentic AI, computer vision, and MLOps pipelines." />
   <meta name="author" content="Yash Nimish Padhye" />
   <link rel="canonical" href="https://yashpadhye17.github.io/" />
-
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://yashpadhye17.github.io/" />
   <meta property="og:title" content="Yash Padhye | AI & Machine Learning Engineer" />
   <meta property="og:description" content="Production AI systems, MLOps, computer vision, and generative AI. MS Data Science & AI at the University of Houston." />
-  <meta property="og:locale" content="en_US" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Yash Padhye | AI & Machine Learning Engineer" />
-  <meta name="twitter:description" content="Production AI systems, MLOps, computer vision, and generative AI." />
-
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305070d'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='28' font-weight='700' fill='%2338bdf8'%3EYP%3C/text%3E%3C/svg%3E" />
-
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' font-family='Georgia,serif' font-size='26' fill='%23f3efe6'%3EYP%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><nav class="navbar" aria-label="Primary"><a class="logo" href="#top" aria-label="Yash Padhye home">YP<span>.</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button><ul id="nav-menu" class="nav-links"><li><a href="#projects">Work</a></li><li><a href="#experience">Experience</a></li><li><a href="#about">About</a></li><li><a href="#contact" class="nav-cta">Let’s talk <span>↗</span></a></li></ul></nav></header>
-<main id="main"><section id="top" class="hero"><div class="hero-copy"><p class="availability"><span></span> Open to opportunities</p><h1>Turning complex data into <em>real-world impact.</em></h1><p class="hero-role"><strong>Yash Padhye</strong> — AI &amp; Machine Learning Engineer</p><p class="hero-lead">Building intelligent systems,<br>from first experiment to production.</p><div class="hero-buttons"><a class="btn" href="#projects">Explore my work <span>↗</span></a></div></div><div class="hero-art"><img src="assets/hero-sculpture.png" width="1024" height="1024" alt="Intertwined mint glass and brushed metal sculpture" fetchpriority="high"><span class="art-caption">DATA<br>IDEAS<br>SYSTEMS<br>PEOPLE<br><b>REAL IMPACT</b></span></div></section>
-<div class="credential-strip"><div><span aria-hidden="true">⌖</span> Houston, TX</div><div><span aria-hidden="true">◇</span> MS Data Science &amp; AI · University of Houston</div><div><span aria-hidden="true">✧</span> 3× Azure Certified</div></div>
-<section id="projects" class="section"><div class="section-top"><p class="eyebrow">01 <span></span> Selected work</p><a href="https://github.com/yashpadhye17" target="_blank" rel="noopener noreferrer">View GitHub ↗</a></div><h2 class="sr-only">Selected projects</h2><div class="filter-bar" role="group" aria-label="Filter projects"><button class="filter-btn is-active" data-filter="all" aria-pressed="true">All work</button><button class="filter-btn" data-filter="genai" aria-pressed="false">GenAI</button><button class="filter-btn" data-filter="mlops" aria-pressed="false">MLOps</button><button class="filter-btn" data-filter="cv" aria-pressed="false">Computer vision</button></div><div class="showcase-grid"><article class="showcase wide" data-tags="genai"><div class="showcase-copy"><span class="project-symbol" aria-hidden="true">◈</span><h3>JobForge</h3><p>An AI-powered career studio.<br>Smarter applications. Brighter opportunities.</p><div class="tags"><span>GenAI</span><span>Python</span><span>Streamlit</span></div><a class="text-link" href="https://github.com/yashpadhye17/JobForge" target="_blank" rel="noopener noreferrer">View project ↗</a><details class="project-details"><summary>Project details</summary><ul class="outcome-list">
-            <li>Local sentence-transformers retrieval; Groq sees only shortlisted items</li>
-            <li>ATS and Harvard Career Services checks before compile</li>
-            <li>Streamlit studio with dashboard, follow-ups, and cover letters</li>
-          </ul></details></div><div class="product-preview job-preview" aria-label="Illustration of the JobForge application workflow"><div class="preview-top"><span class="mini-brand">◈ JobForge</span><span>YOUR CAREER WORKSPACE</span><span>•••</span></div><div class="job-body"><aside><strong>Workspace</strong><span class="selected">Overview</span><span>Applications</span><span>Documents</span><span>AI tools</span></aside><div class="job-main"><h4>Your next chapter.</h4><p>One workspace. Every opportunity.</p><div class="mini-stats"><div><b>Discover</b><span>Find your fit</span></div><div><b>Tailor</b><span>Tell your story</span></div><div><b>Track</b><span>Move forward</span></div></div><div class="kanban"><div><label>TO APPLY</label><div class="job-note"><i></i>ML Engineer<small>Resume ready</small></div></div><div><label>IN PROGRESS</label><div class="job-note"><i></i>AI Developer<small>Application tracked</small></div></div><div><label>INTERVIEW</label><div class="job-note mint"><i></i>Data Scientist<small>Next steps</small></div></div></div></div></div><span class="preview-caption">WORKFLOW ILLUSTRATION</span></div></article><article class="showcase " data-tags="genai"><div class="showcase-copy"><span class="project-symbol" aria-hidden="true">▤</span><h3>LegalAI Hub</h3><p>Intelligent document retrieval.<br>Answers grounded in your sources.</p><div class="tags"><span>RAG</span><span>LangChain</span></div><a class="text-link" href="https://github.com/yashpadhye17/LegalAI" target="_blank" rel="noopener noreferrer">View project ↗</a><details class="project-details"><summary>Project details</summary><ul class="outcome-list">
-            <li>Hybrid BM25 + MMR retrieval over ChromaDB</li>
-            <li>Pydantic-validated JSON for litigation and audit outputs</li>
-            <li>Live CourtListener and regulations.gov sources</li>
-          </ul></details></div><div class="product-preview legal-preview" aria-label="Illustration of the LegalAI document retrieval workflow"><div class="document-panel"><div class="doc-brand">▤ &nbsp; LegalAI Hub</div><div class="query">Ask a question about your documents <span>↗</span></div><div class="doc-row"><b>01</b><div>Contract analysis<small>Retrieve relevant clauses</small></div></div><div class="doc-row"><b>02</b><div>Legal research<small>Find supporting sources</small></div></div><div class="doc-row"><b>03</b><div>Grounded answers<small>Keep citations in context</small></div></div></div><span class="preview-caption">RETRIEVAL WORKFLOW</span></div></article><article class="showcase " data-tags="mlops"><div class="showcase-copy"><span class="project-symbol" aria-hidden="true">▥</span><h3>CheckIntel</h3><p>Predict hotel cancellations.<br>From training to deployment.</p><div class="tags"><span>MLOps</span><span>LightGBM</span></div><a class="text-link" href="https://github.com/yashpadhye17/CheckIntel" target="_blank" rel="noopener noreferrer">View project ↗</a><details class="project-details"><summary>Project details</summary><ul class="outcome-list">
-            <li>87.8% accuracy on reservation outcome prediction</li>
-            <li>Automated training, evaluation, logging, and versioning</li>
-            <li>Containerized UI for serving predictions</li>
-          </ul></details></div><div class="product-preview check-preview" aria-label="CheckIntel reservation prediction pipeline"><div class="model-panel"><div class="doc-brand">Reservation intelligence <span>● MODEL</span></div><div class="model-score"><strong>87.8<span>%</span></strong><p>Prediction accuracy</p></div><div class="pipeline"><span>Data</span><b>→</b><span>LightGBM</span><b>→</b><span>Prediction</span></div><div class="model-footer"><span>MLflow tracking</span><span>Docker deployment</span></div></div><span class="preview-caption">HOTEL CANCELLATION PREDICTION</span></div></article></div><div class="project-grid"><article class="project-card featured-card" data-tags="genai mlops">
-          <p class="project-kicker">LLMOps · Evaluation</p>
-          <h3>Prompt Eval</h3>
-          <p>A production-style prompt evaluation harness: prompts × techniques × models × repeats, scored with deterministic fact-grounding plus an LLM-as-judge rubric, then summarized in a live dashboard and PDF report.</p>
-          <ul class="outcome-list">
-            <li>Measures hallucination, contradiction, structure, cost, and latency</li>
-            <li>95% CIs across repeats so overlapping ranks are not oversold</li>
-            <li>FastAPI orchestrator and React dashboard with SSE progress</li>
-          </ul>
-          <p class="stack">Python · FastAPI · React · Groq · SQLite · PDF reports</p>
-          <a class="text-link" href="https://github.com/yashpadhye17/Prompt_Eval" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-        </article><article class="project-card featured-card" data-tags="genai">
-          <p class="project-kicker">Research · RAG</p>
-          <h3>NASA Technical Reports RAG</h3>
-          <p>Research assistant project processing 646K+ NASA technical records for semantic search and question answering across reports and associated documents. Citation-grounded generation, not free-form chat.</p>
-          <ul class="outcome-list">
-            <li>PDF extraction, chunking, metadata enrichment, and vector indexing</li>
-            <li>Retrieval quality measured with Recall@K and answer relevance</li>
-            <li>Python, LangChain, ChromaDB, and FastAPI</li>
-          </ul>
-          <p class="stack">Python · LangChain · ChromaDB · FastAPI · RAG · Aug 2026</p>
-          <p class="muted">Academic project — no public repository</p>
-        </article><article class="project-card featured-card" data-tags="cv">
-          <p class="project-kicker">Computer Vision · Published</p>
-          <h3>CNN Anomaly Detection</h3>
-          <p>Convolutional anomaly detection on image data, with a published study on how segmentation and scaling choices change detection quality — applied thinking for industrial, medical, and security imagery.</p>
-          <ul class="outcome-list">
-            <li>CNN feature learning for normal vs. anomalous patterns</li>
-            <li>Peer-reviewed paper in IJSREM, 2023</li>
-          </ul>
-          <p class="stack">Python · TensorFlow/Keras · OpenCV · CNNs</p>
-          <div class="link-row">
-            <a class="text-link" href="https://github.com/yashpadhye17/CNN-BASED-ANOMALY-DETECTION" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-            <a class="text-link" href="https://ijsrem.com/download/effects-of-segmentation-and-scaling-on-anomaly-detection-using-convolutional-neural-networks/" target="_blank" rel="noopener noreferrer">Read the paper</a>
-          </div>
-        </article></div><h3 class="archive-title">More explorations</h3><div class="archive-grid">
-        <a class="archive-card" data-tags="mlops" href="https://github.com/yashpadhye17/CurricuLens" target="_blank" rel="noopener noreferrer">
-          <h4>CurricuLens</h4>
-          <p>Classifies educational content to Common Core / high-school standards with TF-IDF models and a Streamlit explorer over 173+ standards.</p>
-          <span>Streamlit · scikit-learn · Altair</span>
-        </a>
-        <a class="archive-card" data-tags="genai" href="https://github.com/yashpadhye17/Role-Radar" target="_blank" rel="noopener noreferrer">
-          <h4>Role-Radar</h4>
-          <p>Resume-driven career analysis: profile summary, skill-gap signals, a learning roadmap, and keyword-aligned opportunities.</p>
-          <span>Python · resume NLP</span>
-        </a>
-        <a class="archive-card" data-tags="mlops" href="https://github.com/yashpadhye17/DiamondPricePrediction" target="_blank" rel="noopener noreferrer">
-          <h4>Diamond Price Prediction</h4>
-          <p>Regression pipeline for diamond prices from carat, cut, color, and clarity, with MAE/RMSE/R² evaluation and a deployable training flow.</p>
-          <span>Python · scikit-learn</span>
-        </a>
-        <a class="archive-card" data-tags="mlops" href="https://github.com/yashpadhye17/Stock-Market-Analysis" target="_blank" rel="noopener noreferrer">
-          <h4>Stock Market Analysis</h4>
-          <p>Linear regression on historical prices to forecast closing values, using open financial data APIs.</p>
-          <span>Python · Jupyter</span>
-        </a>
-        <a class="archive-card" data-tags="mlops" href="https://github.com/yashpadhye17/Diabetes-Prediction" target="_blank" rel="noopener noreferrer">
-          <h4>Diabetes Prediction</h4>
-          <p>Classification workflow served through a Flask app for diabetes risk prediction from tabular health features.</p>
-          <span>Python · Flask · Jupyter</span>
-        </a>
-        <a class="archive-card" data-tags="mlops" href="https://github.com/yashpadhye17/Forestfires" target="_blank" rel="noopener noreferrer">
-          <h4>Forest Fires</h4>
-          <p>Flask-backed analysis and prediction project on forest-fire data, packaged as a runnable web experiment.</p>
-          <span>Python · Flask · Jupyter</span>
-        </a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <dialog class="contact-sheet" id="contact-sheet" aria-labelledby="sheet-title">
+    <div class="sheet-inner">
+      <p class="sheet-kicker" id="click-count-label">Enough clicking.</p>
+      <h2 id="sheet-title">Either you are stalling, or you actually want to work together.</h2>
+      <p>If it is the second one:</p>
+      <a class="sheet-mail" href="mailto:yashpadhye2016@gmail.com">yashpadhye2016@gmail.com</a>
+      <button type="button" class="sheet-close" data-close-sheet>Close (ESC)</button>
+    </div>
+  </dialog>
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary">
+      <a class="logo" href="#top" aria-label="Yash Padhye home">YP<span>.</span></a>
+      <ul id="nav-menu" class="nav-links">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#track">Track</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#beliefs">Beliefs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-end">
+        <button class="plain-toggle" type="button" aria-pressed="false">Plain mode</button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+        <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to light theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M3 12h2M19 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.2 4.1A8 8 0 1 0 20 14.8 6.4 6.4 0 0 1 15.2 4.1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </button>
       </div>
-    </section><section id="experience" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">02 <span></span> Experience</p>
-        <h2>Built for the real world.</h2>
-      </div>
-      <ol class="timeline">
-        <li><details class="experience-detail"><summary><div class="timeline-meta">
-            <p class="role">AI Workflow Implementation Intern</p>
-            <p class="org">GLX Technologies · Houston, TX</p>
-            <p class="dates">Jun 2026 – Present</p>
-          </div><span class="expand-icon" aria-hidden="true">+</span></summary><ul>
-            <li>Integrated AI and data-processing services into existing business systems with Python, n8n, Claude, and Microsoft Azure, supporting reliable automation across production workflows.</li>
-            <li>Built an automated sales-opportunity pipeline that uses AI agents to identify relevant leads and deliver curated opportunities to the sales team on a weekly schedule.</li>
-            <li>Reduced financial report preparation from 2 days to 15 minutes by connecting n8n workflows with Oracle NetSuite ERP for retrieval, transformation, and report generation.</li>
-            <li>Deployed AI chatbots for Finance, Delivery, and HR with Azure Bot Service and n8n, automating internal support and enabling self-service across departments.</li>
-          </ul></details></li>
-        <li><details class="experience-detail"><summary><div class="timeline-meta">
-            <p class="role">Application Developer</p>
-            <p class="org">University of Houston · Houston, TX</p>
-            <p class="dates">Dec 2025 – Jun 2026</p>
-          </div><span class="expand-icon" aria-hidden="true">+</span></summary><ul>
-            <li>Reduced course-evaluation report generation time by 70% through SQL stored procedures, reusable data-processing workflows, and standardized reporting logic.</li>
-            <li>Shortened university notification delivery from 2 days to under 5 minutes with a Python and SQL scheduling system for faculty, students, deans, and department chairs.</li>
-            <li>Designed and deployed 37 Tableau dashboards for faculty evaluation analytics, supporting 800+ stakeholders across 27 departments with automated weekly refreshes.</li>
-            <li>Standardized recurring datasets with VBA-based transformation tools, cutting repetitive manual processing for university stakeholders.</li>
-          </ul></details></li>
-        <li><details class="experience-detail"><summary><div class="timeline-meta">
-            <p class="role">Associate Data Scientist</p>
-            <p class="org">Inorg Global India Pvt. Ltd. · Client: V4c.ai</p>
-            <p class="dates">Jul 2024 – Jul 2025</p>
-          </div><span class="expand-icon" aria-hidden="true">+</span></summary><ul>
-            <li>Achieved 93% face-detection accuracy across 100,000+ audience records using Python, DeepFace, MTCNN, and OpenCV, while minimizing false positives.</li>
-            <li>Cut valuation analysis turnaround from 8 days to 10 minutes through Python ETL, feature engineering, and analytical workflows in Dataiku.</li>
-            <li>Handled 5,000+ customer queries at 3–5 second average response time with a ReAct NLP agent using LangChain, real-time APIs, and databases.</li>
-            <li>Built a Jenkins CI/CD pipeline with Bitbucket and SonarQube, Power BI dashboards, and AI-governance checks for bias, PII, and model-output auditing.</li>
-            <li>Honored with the Ascension Award for outstanding technical contributions.</li>
-          </ul></details></li>
-      </ol>
-    </section><section id="about" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">03 <span></span> About me</p>
-        <h2>From models to production systems</h2>
-      </div>
-      <div class="about-grid">
-        <div class="prose">
-          <p>
-            I am an AI and machine learning engineer with industry experience building end-to-end ML pipelines, computer vision systems, NLP agents, and cloud automation. I care about systems that are measurable, maintainable, and useful in production, with clear paths from experimentation to deployment.
-          </p>
-          <p>
-            At GLX Technologies I wire AI and data services into live business workflows with Python, n8n, Claude, and Microsoft Azure. Previously at the University of Houston I automated institutional reporting for 27 departments, and at Inorg Global I shipped facial recognition, Dataiku analytics, and a ReAct-based customer agent for V4c.ai — earning the Ascension Award.
-          </p>
-          <p>
-            I am currently pursuing an M.S. in Engineering Data Science and Artificial Intelligence at the University of Houston (GPA 3.83/4.0), with a focus on scalable, ethical AI systems and LLMOps.
-          </p>
-        </div>
-        <aside class="education-card">
-          <h3>Education</h3>
-          <article>
-            <p class="edu-school">University of Houston</p>
-            <p class="edu-degree">M.S. Engineering — Data Science &amp; Artificial Intelligence</p>
-            <p class="edu-meta">Aug 2025 – May 2027 · GPA 3.83/4.0</p>
-            <p class="edu-note">Coursework: Machine Learning, Applied Neural Networks, AI, Probability &amp; Statistics, Big Data Analytics, Cloud Computing, Digital Image Processing</p>
-          </article>
-          <article>
-            <p class="edu-school">Savitribai Phule Pune University</p>
-            <p class="edu-degree">B.E. Artificial Intelligence and Data Science</p>
-            <p class="edu-meta">Aug 2020 – Jun 2024</p>
-          </article>
-        </aside>
-      </div>
-    </section><section id="skills" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">04 <span></span> Toolkit</p>
-        <h2>Tools I ship with</h2>
-      </div>
-      <div class="skill-groups">
-        <div class="skill-group">
-          <h3>Programming</h3>
-          <ul>
-            <li>Python</li><li>C++</li><li>C</li><li>C#</li><li>SQL</li><li>R</li><li>Bash</li><li>Git</li><li>Linux/Unix</li>
+    </nav>
+  </header>
+
+  <main id="main">
+    <p class="mission" aria-hidden="true"><span>Building at GLX Technologies · Houston · Open to internships, co-ops, and full-time roles · Building at GLX Technologies · Houston · Open to internships, co-ops, and full-time roles · </span></p>
+
+    <section id="top" class="hero">
+      <h1>Ship the pipeline.<br>Measure the claim.<br>Cut the busywork.</h1>
+
+      <div class="hero-row">
+        <button class="id-card" type="button" aria-expanded="false" aria-controls="id-back">
+          <span class="id-front">
+            <b>Yash Padhye</b>
+            <em>AI &amp; Machine Learning Engineer</em>
+            <small>MS Data Science &amp; AI @ University of Houston</small>
+            <i class="postit">yes, I put a note on my own site.</i>
+          </span>
+          <span class="hint">Tap the card</span>
+        </button>
+
+        <div class="id-back" id="id-back" hidden>
+          <p>I have built models. I now build the systems that keep them honest in production. A good notebook never survives a bad workflow.</p>
+          <p>At GLX I wire Claude, n8n, and Azure into live operations. Before that: university reporting for 27 departments, then computer vision, Dataiku valuation, and a ReAct agent at Inorg / V4c.ai.</p>
+          <ul class="stamp-row">
+            <li>Agentic workflows</li>
+            <li>RAG systems</li>
+            <li>MLOps</li>
           </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Data &amp; databases</h3>
-          <ul>
-            <li>MySQL</li><li>PostgreSQL</li><li>MongoDB</li><li>Snowflake</li><li>Pandas</li><li>NumPy</li><li>PySpark</li><li>ETL</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Cloud &amp; MLOps</h3>
-          <ul>
-            <li>Microsoft Azure</li><li>AWS</li><li>GCP</li><li>Docker</li><li>Kubernetes</li><li>Jenkins</li><li>CircleCI</li><li>MLflow</li><li>Azure Data Factory</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>AI / ML / GenAI</h3>
-          <ul>
-            <li>Scikit-Learn</li><li>TensorFlow</li><li>PyTorch</li><li>NLP</li><li>Computer Vision</li><li>OpenCV</li><li>YOLO</li><li>DeepFace</li><li>LangChain</li><li>Hugging Face</li><li>RAG</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Development tools</h3>
-          <ul>
-            <li>FastAPI</li><li>Flask</li><li>Dataiku</li><li>n8n</li><li>VBA</li><li>Power BI</li><li>Tableau</li><li>Apache Airflow</li>
-          </ul>
-        </div>
-      </div>
-    </section><section id="publications" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">05 <span></span> Writing &amp; credentials</p>
-        <h2>Publications and certifications</h2>
-      </div>
-      <div class="pub-layout">
-        <div>
-          <h3 class="subhead">Publications</h3>
-          <ul class="pub-list">
-            <li>
-              <a href="https://doi.org/10.1109/PuneCon58714.2023.10450038" target="_blank" rel="noopener noreferrer">Enhancing Malicious Domain Detection Using Advanced Machine Learning Techniques</a>
-              <span>IEEE PuneCon, 2023</span>
-            </li>
-            <li>
-              <a href="https://doi.org/10.1109/PuneCon58714.2023.10450004" target="_blank" rel="noopener noreferrer">Harnessing Machine Learning for Predictive Analysis of Air Quality in Pune City: A Comparative Study</a>
-              <span>IEEE PuneCon, 2023</span>
-            </li>
-            <li>
-              <a href="https://ijsrem.com/download/effects-of-segmentation-and-scaling-on-anomaly-detection-using-convolutional-neural-networks/" target="_blank" rel="noopener noreferrer">Effects of Segmentation and Scaling on Anomaly Detection Using Convolutional Neural Networks</a>
-              <span>IJSREM, 2023 · doi:10.55041/ijsrem24917</span>
-            </li>
-            <li>
-              <p>Automated System for Monitoring and Maintaining Yarn Quality</p>
-              <span>2023</span>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="subhead">Certifications</h3>
-          <ul class="cert-list">
-            <li>Microsoft Certified: Fabric Data Engineer Associate (DP-700) · Mar 2026</li>
-            <li>Microsoft Certified: Azure AI Fundamentals (AI-900) · May 2025</li>
-            <li>Microsoft Certified: Azure Data Fundamentals (DP-900) · Apr 2025</li>
-            <li>6× Dataiku certified (including ML Practitioner and Core Designer)</li>
-            <li>Google Data Analytics Professional Certificate · Feb 2022</li>
-          </ul>
-          <p class="also-certs">Also: IBM Data Science Tools / Visualization / Python; edX Introduction to Data Science; NPTEL Python for Data Science.</p>
+          <button type="button" class="text-back" data-flip-back>Click to go back</button>
         </div>
       </div>
     </section>
-<section id="contact" class="section contact-section"><p class="eyebrow">06 <span></span> Let’s connect</p><div class="contact-layout"><h2>Have a challenge<br>worth solving?<br><a href="mailto:yashpadhye2016@gmail.com">Let’s talk ↗</a></h2><div class="contact-links"><a href="mailto:yashpadhye2016@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/yash-padhye/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a href="https://github.com/yashpadhye17" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div><p class="contact-note">Open to internships, co-ops, and full-time roles in ML engineering, data science, and AI development.</p></section></main><footer><span>© 2026 Yash Nimish Padhye</span><a href="#top">Back to top ↑</a><span>Thoughtful systems. Meaningful impact.</span></footer><script src="script.js"></script></body></html>
+
+    <section id="track" class="section">
+      <div class="section-head">
+        <h2>Track record</h2>
+        <p>Period / org · what I was actually hired to move.</p>
+      </div>
+      <div class="track-table" role="list">
+        <div class="track-legend" aria-hidden="true">
+          <span>Period / organization</span>
+          <span>Focus</span>
+          <span>What changed</span>
+        </div>
+
+        <article class="track-row is-open" role="listitem">
+          <button class="track-toggle" type="button" aria-expanded="true">
+            <span class="track-who">
+              <time>Jun 2026 — Pres.</time>
+              <strong>GLX Technologies</strong>
+              <em>AI Workflow Implementation Intern</em>
+            </span>
+            <span class="track-focus">Production automation</span>
+            <span class="track-plus" aria-hidden="true"></span>
+          </button>
+          <div class="track-body">
+            <p>I do not add another chatbot to a slide. I connect AI to the systems finance and sales already live in.</p>
+            <ul>
+              <li>Python, n8n, Claude, and Azure wired into existing production workflows.</li>
+              <li>Weekly AI sales-opportunity pipeline that delivers curated leads instead of a dump of links.</li>
+              <li>NetSuite financial reports: 2 days → 15 minutes.</li>
+              <li>Azure Bot Service + n8n assistants for Finance, Delivery, and HR.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="track-row" role="listitem">
+          <button class="track-toggle" type="button" aria-expanded="false">
+            <span class="track-who">
+              <time>Dec 2025 — Jun 2026</time>
+              <strong>University of Houston</strong>
+              <em>Application Developer</em>
+            </span>
+            <span class="track-focus">Institutional reporting</span>
+            <span class="track-plus" aria-hidden="true"></span>
+          </button>
+          <div class="track-body">
+            <p>Course evaluations were a two-day ritual. They are now a scheduled system.</p>
+            <ul>
+              <li>SQL stored procedures cut report generation time by 70%.</li>
+              <li>Python + SQL notifications: 2 days → under 5 minutes, for faculty, deans, and chairs.</li>
+              <li>37 Tableau dashboards, 800+ stakeholders, 27 departments, weekly refresh.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="track-row" role="listitem">
+          <button class="track-toggle" type="button" aria-expanded="false">
+            <span class="track-who">
+              <time>Jul 2024 — Jul 2025</time>
+              <strong>Inorg Global · V4c.ai</strong>
+              <em>Associate Data Scientist</em>
+            </span>
+            <span class="track-focus">Vision, agents, valuation</span>
+            <span class="track-plus" aria-hidden="true"></span>
+          </button>
+          <div class="track-body">
+            <p>Ascension Award. The work that earned it was operational, not decorative.</p>
+            <ul>
+              <li>93% face-detection accuracy on 100,000+ records with DeepFace + MTCNN.</li>
+              <li>Valuation analysis: 8 days → 10 minutes in Dataiku.</li>
+              <li>ReAct NLP agent: 5,000+ queries at 3–5 seconds.</li>
+              <li>Jenkins / Bitbucket / SonarQube plus bias and PII checks.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <p>Systems I can walk through. Not a gallery of logos.</p>
+      </div>
+      <div class="filter-bar" role="group" aria-label="Filter work">
+        <button class="filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="genai" aria-pressed="false">GenAI</button>
+        <button class="filter-btn" data-filter="mlops" aria-pressed="false">MLOps</button>
+        <button class="filter-btn" data-filter="cv" aria-pressed="false">Vision</button>
+      </div>
+
+      <div class="work-list">
+        <article class="work-row" data-tags="genai">
+          <div class="work-meta"><span>01</span><b>JobForge</b><i>Local career studio</i></div>
+          <p>Excel tracker. Local embeddings. Groq may rewrite only what is already in the YAML library. You approve every bullet before LaTeX compiles.</p>
+          <a href="https://github.com/yashpadhye17/JobForge" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </article>
+        <article class="work-row" data-tags="genai">
+          <div class="work-meta"><span>02</span><b>LegalAI Hub</b><i>Six-agent RAG</i></div>
+          <p>Contract Q&amp;A, policies, risk, litigation, audit, live regulations. Hybrid BM25 + MMR. Pydantic where the output has to be machine-readable.</p>
+          <a href="https://github.com/yashpadhye17/LegalAI" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </article>
+        <article class="work-row" data-tags="genai mlops">
+          <div class="work-meta"><span>03</span><b>Prompt Eval</b><i>LLMOps harness</i></div>
+          <p>Prompts × techniques × models × repeats. Deterministic grounding first, judge second. 95% CIs so overlapping ranks are not sold as winners.</p>
+          <a href="https://github.com/yashpadhye17/Prompt_Eval" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </article>
+        <article class="work-row" data-tags="mlops">
+          <div class="work-meta"><span>04</span><b>CheckIntel</b><i>Reservation MLOps</i></div>
+          <p>Hotel outcome prediction at 87.8% accuracy. MLflow, Jenkins, Docker, a UI. Training that can be run again next month.</p>
+          <a href="https://github.com/yashpadhye17/CheckIntel" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </article>
+        <article class="work-row" data-tags="genai">
+          <div class="work-meta"><span>05</span><b>NASA Technical Reports RAG</b><i>Research · Aug 2026</i></div>
+          <p>646K+ records. Chunk, embed, cite. Recall@K on a technical-query benchmark. No public repo — academic work.</p>
+        </article>
+        <article class="work-row" data-tags="cv">
+          <div class="work-meta"><span>06</span><b>CNN Anomaly Detection</b><i>Published, 2023</i></div>
+          <p>Segmentation and scaling change what a CNN calls an anomaly. Paper in IJSREM, code on GitHub.</p>
+          <div class="work-links">
+            <a href="https://github.com/yashpadhye17/CNN-BASED-ANOMALY-DETECTION" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://ijsrem.com/download/effects-of-segmentation-and-scaling-on-anomaly-detection-using-convolutional-neural-networks/" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <details class="more-work">
+        <summary>More explorations</summary>
+        <div class="archive-grid">
+          <a data-tags="mlops" href="https://github.com/yashpadhye17/CurricuLens" target="_blank" rel="noopener noreferrer">CurricuLens <span>standards classifier</span></a>
+          <a data-tags="genai" href="https://github.com/yashpadhye17/Role-Radar" target="_blank" rel="noopener noreferrer">Role-Radar <span>resume NLP</span></a>
+          <a data-tags="mlops" href="https://github.com/yashpadhye17/DiamondPricePrediction" target="_blank" rel="noopener noreferrer">Diamond Price <span>regression</span></a>
+          <a data-tags="mlops" href="https://github.com/yashpadhye17/Stock-Market-Analysis" target="_blank" rel="noopener noreferrer">Stock Market <span>forecast</span></a>
+          <a data-tags="mlops" href="https://github.com/yashpadhye17/Diabetes-Prediction" target="_blank" rel="noopener noreferrer">Diabetes Prediction <span>Flask</span></a>
+          <a data-tags="mlops" href="https://github.com/yashpadhye17/Forestfires" target="_blank" rel="noopener noreferrer">Forest Fires <span>Flask</span></a>
+        </div>
+      </details>
+    </section>
+
+    <section id="beliefs" class="section">
+      <div class="section-head">
+        <h2>Beliefs</h2>
+        <p class="belief-lead">A model is not a product. A dashboard is not a decision.</p>
+      </div>
+      <div class="beliefs">
+        <article>
+          <h3>Cite the source</h3>
+          <p>If the answer cannot point at a chunk, a row, or a meter, it is a vibe. I build retrieval that can be graded.</p>
+        </article>
+        <article>
+          <h3>Time is the metric</h3>
+          <p>8 days to 10 minutes. 2 days to 15 minutes. 2 days to 5 minutes. If the calendar does not move, the model did not ship.</p>
+        </article>
+        <article>
+          <h3>Do not invent the bullet</h3>
+          <p>JobForge is allowed to rewrite what I already wrote. It is not allowed to grow a number. That is the whole product.</p>
+        </article>
+        <article>
+          <h3>Take the boring pipe</h3>
+          <p>The work everyone avoids — stored procedures, NetSuite extracts, weekly emails — is where automation pays rent.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <div class="about-grid">
+        <div class="prose">
+          <p>Houston. M.S. Engineering — Data Science and Artificial Intelligence at the University of Houston, GPA 3.83. B.E. AI &amp; Data Science, Savitribai Phule Pune University.</p>
+          <p>I want internships, co-ops, and full-time seats in ML engineering, data science, and AI development — the kind where the system has to stay up on Monday.</p>
+        </div>
+        <aside>
+          <h3>Education</h3>
+          <p><strong>University of Houston</strong><br>M.S. DS &amp; AI · Aug 2025 – May 2027 · 3.83/4.0</p>
+          <p><strong>SPPU</strong><br>B.E. Artificial Intelligence and Data Science · 2020 – 2024</p>
+        </aside>
+      </div>
+      <ul class="toolkit">
+        <li>Python</li><li>SQL</li><li>Azure</li><li>n8n</li><li>LangChain</li><li>PyTorch</li><li>Docker</li><li>MLflow</li><li>Dataiku</li><li>Tableau</li>
+      </ul>
+    </section>
+
+    <section id="writing" class="section">
+      <div class="section-head">
+        <h2>Writing &amp; papers</h2>
+      </div>
+      <ul class="pub-list">
+        <li><a href="https://doi.org/10.1109/PuneCon58714.2023.10450038" target="_blank" rel="noopener noreferrer">Enhancing Malicious Domain Detection Using Advanced Machine Learning Techniques</a><span>IEEE PuneCon, 2023</span></li>
+        <li><a href="https://doi.org/10.1109/PuneCon58714.2023.10450004" target="_blank" rel="noopener noreferrer">Predictive Analysis of Air Quality in Pune City</a><span>IEEE PuneCon, 2023</span></li>
+        <li><a href="https://ijsrem.com/download/effects-of-segmentation-and-scaling-on-anomaly-detection-using-convolutional-neural-networks/" target="_blank" rel="noopener noreferrer">Effects of Segmentation and Scaling on CNN Anomaly Detection</a><span>IJSREM, 2023</span></li>
+        <li><p>Automated System for Monitoring and Maintaining Yarn Quality</p><span>2023</span></li>
+      </ul>
+      <p class="certs">3× Azure (DP-700, AI-900, DP-900) · 6× Dataiku · Google Data Analytics</p>
+    </section>
+
+    <section id="contact" class="section contact">
+      <h2>Have a system that is still held together by a spreadsheet?</h2>
+      <a class="giant-mail" href="mailto:yashpadhye2016@gmail.com">Let’s talk ↗</a>
+      <div class="contact-links">
+        <a href="mailto:yashpadhye2016@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/yash-padhye/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/yashpadhye17" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Yash Nimish Padhye</span>
+    <span>Houston · AI systems that survive Monday</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
