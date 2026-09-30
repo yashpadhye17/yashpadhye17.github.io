@@ -2,13 +2,7 @@ const root = document.documentElement;
 const navToggle = document.querySelector('.nav-toggle');
 const navMenu = document.querySelector('#nav-menu');
 const themeToggle = document.querySelector('.theme-toggle');
-const plainToggle = document.querySelector('.plain-toggle');
-const idCard = document.querySelector('.id-card');
-const idBack = document.querySelector('#id-back');
-const flipBack = document.querySelector('[data-flip-back]');
-const sheet = document.querySelector('#contact-sheet');
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-let clicks = 0;
 
 function closeMenu(returnFocus = false) {
   navMenu?.classList.remove('is-open');
@@ -24,25 +18,35 @@ navToggle?.addEventListener('click', () => {
   navMenu?.classList.toggle('is-open', open);
 });
 
-document.addEventListener('click', event => {
-  if (!event.target.closest('.navbar')) closeMenu();
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.nav')) closeMenu();
 });
-window.matchMedia('(min-width: 761px)').addEventListener('change', event => {
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && navMenu?.classList.contains('is-open')) closeMenu(true);
+});
+
+window.matchMedia('(min-width: 761px)').addEventListener('change', (event) => {
   if (event.matches) closeMenu();
 });
 
 function currentTheme() {
-  return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
 }
 
 function syncThemeControl(theme) {
-  themeToggle?.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`);
-  themeToggle?.setAttribute('aria-pressed', String(theme === 'light'));
+  const next = theme === 'dark' ? 'light' : 'dark';
+  themeToggle?.setAttribute('aria-label', `Switch to ${next} theme`);
+  themeToggle?.setAttribute('aria-pressed', String(theme === 'dark'));
 }
 
 function applyTheme(theme) {
   root.setAttribute('data-theme', theme);
-  try { localStorage.setItem('theme', theme); } catch (error) { /* ignore */ }
+  try {
+    localStorage.setItem('theme', theme);
+  } catch (error) {
+    /* private mode */
+  }
   syncThemeControl(theme);
 }
 
@@ -55,46 +59,11 @@ themeToggle?.addEventListener('click', () => {
   }
   swap();
 });
+
 syncThemeControl(currentTheme());
 
-function syncPlain() {
-  const on = root.getAttribute('data-plain') === 'true';
-  plainToggle?.setAttribute('aria-pressed', String(on));
-  if (plainToggle) plainToggle.textContent = on ? 'Designed mode' : 'Plain mode';
-}
-
-plainToggle?.addEventListener('click', () => {
-  const on = root.getAttribute('data-plain') === 'true';
-  root.toggleAttribute('data-plain', !on);
-  try { localStorage.setItem('plain', on ? '0' : '1'); } catch (error) { /* ignore */ }
-  syncPlain();
-});
-syncPlain();
-
-idCard?.addEventListener('click', () => {
-  const open = idCard.getAttribute('aria-expanded') !== 'true';
-  idCard.setAttribute('aria-expanded', String(open));
-  idBack.hidden = !open;
-});
-flipBack?.addEventListener('click', () => {
-  idCard?.setAttribute('aria-expanded', 'false');
-  if (idBack) idBack.hidden = true;
-  idCard?.focus();
-});
-
-document.querySelectorAll('.track-toggle').forEach(button => {
-  button.addEventListener('click', () => {
-    const row = button.closest('.track-row');
-    const open = !row.classList.contains('is-open');
-    document.querySelectorAll('.track-row').forEach(item => {
-      item.classList.toggle('is-open', item === row && open);
-      item.querySelector('.track-toggle')?.setAttribute('aria-expanded', String(item === row && open));
-    });
-  });
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', event => {
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener('click', (event) => {
     const href = anchor.getAttribute('href');
     const target = href && document.getElementById(href.slice(1));
     if (!target) return;
@@ -102,49 +71,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     closeMenu();
     target.setAttribute('tabindex', '-1');
     target.focus({ preventScroll: true });
-    target.scrollIntoView({ behavior: motionPreference.matches ? 'instant' : 'smooth', block: 'start' });
+    target.scrollIntoView({
+      behavior: motionPreference.matches ? 'instant' : 'smooth',
+      block: 'start',
+    });
     history.pushState(null, '', href);
   });
 });
 
 const filterButtons = document.querySelectorAll('.filter-btn');
 const tagged = document.querySelectorAll('[data-tags]');
-filterButtons.forEach(button => {
+
+filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const filter = button.dataset.filter || 'all';
-    filterButtons.forEach(item => {
+    filterButtons.forEach((item) => {
       item.classList.toggle('is-active', item === button);
       item.setAttribute('aria-pressed', String(item === button));
     });
-    tagged.forEach(card => {
-      card.hidden = filter !== 'all' && !card.dataset.tags.split(/\s+/).includes(filter);
+    tagged.forEach((card) => {
+      const tags = (card.dataset.tags || '').split(/\s+/);
+      card.hidden = filter !== 'all' && !tags.includes(filter);
     });
   });
 });
 
-function openSheet() {
-  if (typeof sheet.showModal === 'function' && !sheet.open) sheet.showModal();
+function revealCards() {
+  const cards = document.querySelectorAll('.reveal');
+  if (motionPreference.matches) {
+    cards.forEach((card) => card.classList.add('is-visible'));
+    return;
+  }
+  const observer = new IntersectionObserver(
+    (entries, current) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        current.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
+  );
+  cards.forEach((card) => observer.observe(card));
 }
 
-document.querySelector('[data-close-sheet]')?.addEventListener('click', () => sheet.close());
-sheet?.addEventListener('click', event => {
-  if (event.target === sheet) sheet.close();
-});
-
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') {
-    if (navMenu?.classList.contains('is-open')) closeMenu(true);
-    if (sheet?.open) sheet.close();
-  }
-});
-
-document.addEventListener('click', event => {
-  if (event.target.closest('a, button, summary, input, textarea')) {
-    clicks += 1;
-    if (clicks === 10) {
-      const label = document.querySelector('#click-count-label');
-      if (label) label.textContent = '10+ clicks.';
-      openSheet();
-    }
-  }
-});
+revealCards();
